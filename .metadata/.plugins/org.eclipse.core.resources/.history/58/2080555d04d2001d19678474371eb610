@@ -1,0 +1,55 @@
+package kodlama.io.Devs.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlama.io.Devs.business.abstracts.IPLangService;
+import kodlama.io.Devs.dataAccess.abstracts.IPLangRepository;
+import kodlama.io.Devs.entities.concretes.PLang;
+
+@Service
+public class PLangManager implements IPLangService{
+	IPLangRepository pLangRepository;
+	
+	@Autowired
+	public PLangManager(IPLangRepository pLangRepository) {
+		super();
+		this.pLangRepository = pLangRepository;
+	}
+
+	@Override
+	public void add(int id, String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<PLang> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PLang> getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	}
+
+}

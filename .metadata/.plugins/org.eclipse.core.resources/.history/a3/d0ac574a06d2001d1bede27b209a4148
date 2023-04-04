@@ -1,0 +1,19 @@
+package kodlama.io.Devs.business.abstracts;
+
+import java.util.List;
+
+import kodlama.io.Devs.entities.concretes.PLang;
+
+public interface IPLangService {
+	
+	void add(int id, String name);
+	
+	void update(int id);
+	
+	void delete(int id);
+	
+	List<PLang> getAll();
+	
+	List<PLang> getById(int id);
+
+}
