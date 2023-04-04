@@ -11,18 +11,21 @@ import kodlama.io.Devs.entities.concretes.PLang;
 
 @Repository
 public class InMemoryPLangRepository implements IPLangRepository{
-	
+	PLang pLang;
 	List<PLang> pLangs;
-	//InMemoryPLangRepository inMemory = new InMemoryPLangRepository();
+	
 	@Autowired
 	public InMemoryPLangRepository() {
-		pLangs = new ArrayList<PLang>();
-		pLangs.add(new PLang(1,"Java"));
-		pLangs.add(new PLang(2,"C#"));
-		pLangs.add(new PLang(3,"Python"));
 		
-		//inMemory.update(2, "C++");
+		pLangs = new ArrayList<PLang>();
+		add(0,"java");
+		add(1,"c++");
+		add(2,"python");
+		update(1, "C#");
+		
+		
 	}
+	
 
 	@Override
 	public void add(int id, String name) {
