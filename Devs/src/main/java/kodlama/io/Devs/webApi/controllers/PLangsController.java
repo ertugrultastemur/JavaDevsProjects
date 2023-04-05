@@ -19,12 +19,12 @@ public class PLangsController {
 	IPLangService pLangService;
 
 	@Autowired
-	public PLangsController(IPLangService pLangService) {
+	public PLangsController(IPLangService pLangService) throws Exception{
 		super();
 		this.pLangService = pLangService;
 	}
 	@GetMapping("/getall")
-	public List<PLang> getAll() {
+	public List<PLang> getAll() throws Exception{
 		PLangManager pLangManager = new PLangManager(new InMemoryPLangRepository());
 		pLangManager.getAll();
 		

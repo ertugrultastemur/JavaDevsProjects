@@ -6,7 +6,7 @@ import kodlama.io.Devs.entities.concretes.PLang;
 
 public interface IPLangService {
 	
-	void add(int id, String name);
+	void add(int id, String name) throws Exception;
 	
 	void update(int id,String name);
 	

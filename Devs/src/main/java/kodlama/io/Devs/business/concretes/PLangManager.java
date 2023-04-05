@@ -20,7 +20,7 @@ public class PLangManager implements IPLangService{
 	}
 
 	@Override
-	public void add(int id, String name) {
+	public void add(int id, String name) throws Exception{
 		pLangRepository.add(id, name);
 	}
 
