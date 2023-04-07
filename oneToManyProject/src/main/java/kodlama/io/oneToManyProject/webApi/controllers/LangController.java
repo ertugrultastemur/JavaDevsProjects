@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,12 +25,12 @@ public class LangController {
 		this.langService = langService;
 	}
 	
-	@GetMapping(name="/getall")
+	@RequestMapping(name="/all")
 	List<GetAllLangsResponse> getAll(){
 		return langService.getAll();
 	}
 	
-	@GetMapping(name="/getbyid")
+	@GetMapping(name="/{id}")
 	GetAllLangsResponse getById(int id) {
 		return langService.getById(id);
 	}
@@ -40,14 +41,14 @@ public class LangController {
 		langService.add(langRequest);
 	}
 	
-	@PostMapping(name="/update")
+	@PutMapping(name = "/update")
 	public void update(CreateLangRequest langRequest,String name) {
 		langService.update(langRequest,name);
 	}
 	
 	@DeleteMapping(name="/delete")
-	public void delete(CreateLangRequest langRequest) {
-		langService.delete(langRequest);
+	public void delete(int id) {
+		langService.delete(id);
 	}
 	
 }

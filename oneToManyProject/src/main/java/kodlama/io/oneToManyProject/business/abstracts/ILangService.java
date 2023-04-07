@@ -11,6 +11,6 @@ public interface ILangService {
 	GetAllLangsResponse getById(int id);
 	void add(CreateLangRequest langRequest);
 	void update(CreateLangRequest langRequest, String name);
-	void delete(CreateLangRequest langRequest);
+	void delete(int id);
 	
 }
