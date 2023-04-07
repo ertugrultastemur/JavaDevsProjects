@@ -81,11 +81,14 @@ public class LangManager implements ILangService{
 
 
 	@Override
-	public void delete(CreateLangRequest langRequest) {
+	public void delete(int id) {
+		Lang lang = new Lang();
 		List<Lang> langs = langRepository.findAll();
-		for (Lang lang : langs) {
-			if(langRequest.getName()== lang.getName()) {
-				langRepository.delete(lang);
+		for (Lang lang1 : langs) {
+			if(id==lang1.getId()) {
+				lang=lang1;
+				langRepository.deleteById(lang1.getId());
+				System.out.println("sa");
 				break;
 			}
 		}
