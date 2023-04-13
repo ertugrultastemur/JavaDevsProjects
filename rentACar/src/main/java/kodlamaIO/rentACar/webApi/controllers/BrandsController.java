@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import kodlamaIO.rentACar.business.abstracts.IBrandService;
 import kodlamaIO.rentACar.business.requests.CreateBrandRequest;
 import kodlamaIO.rentACar.business.requests.UpdateBrandRequest;
@@ -39,7 +40,7 @@ public class BrandsController {
 	}
 	@PostMapping()
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void add(@RequestBody() CreateBrandRequest createBrandRequest) {
+	public void add(@RequestBody() @Valid CreateBrandRequest createBrandRequest) {
 		this.brandService.add(createBrandRequest);
 	}
 	
