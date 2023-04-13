@@ -1,6 +1,5 @@
 package kodlamaIO.rentACar.business.responses;
 
-import kodlamaIO.rentACar.entities.concretes.Brand;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

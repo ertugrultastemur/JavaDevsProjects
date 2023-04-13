@@ -2,6 +2,7 @@ package kodlamaIO.rentACar.entities.concretes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "cars")
 public class Car {
 	
 	@Id
@@ -35,7 +37,9 @@ public class Car {
 	@Column(name="state")
 	private int state; //1 available 2 rented 3 maintanced
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "model_id")
-	Model model;
+	private Model model;
+	
+
 }

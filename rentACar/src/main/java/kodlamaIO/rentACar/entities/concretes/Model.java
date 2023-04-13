@@ -1,9 +1,13 @@
 package kodlamaIO.rentACar.entities.concretes;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,20 +23,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="models")
+@Table(name = "models")
 public class Model {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="name")
-	private String name;
-	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
 	@JoinColumn(name="brand_id")
 	Brand brand;
 	
+	@Column(name="name")
+	private String name;
+	
+
 	@OneToMany(mappedBy = "model")
-	List<Car> cars;
+	private List<Car> cars = new ArrayList<>();
+
+
+
 }

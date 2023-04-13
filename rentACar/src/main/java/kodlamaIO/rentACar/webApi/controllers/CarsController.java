@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import kodlamaIO.rentACar.business.abstracts.ICarService;
 import kodlamaIO.rentACar.business.requests.CreateCarRequest;
 import kodlamaIO.rentACar.business.responses.GetAllCarsResponse;
@@ -27,9 +28,9 @@ public class CarsController {
 		return carService.getAll();
 		}
 	
-	@PostMapping()
+	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void add(@RequestBody CreateCarRequest createCarRequest) {
+	public void add(@RequestBody @Valid CreateCarRequest createCarRequest) {
 		this.carService.add(createCarRequest);
 	}
 	
